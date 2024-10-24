@@ -3,12 +3,10 @@ var fname=document.getElementById('fname')
 var lname=document.getElementById('lname')
 var mail=document.getElementById('email')
 var pas=document.getElementById('password')
-var pass=document.getElementById('conpass')
 var error1=document.getElementById('error1')
 var error2=document.getElementById('error2')
 var error3=document.getElementById('error3')
 var error4=document.getElementById('error4')
-var error5=document.getElementById('error5')
 
 
 myform.addEventListener('submit',(event)=>{
@@ -29,6 +27,26 @@ myform.addEventListener('submit',(event)=>{
     }
     else{
         lname.style.border='2px solid green'
-        error2.textContent=''
+        error2.textContent=' '
     }    
+    if(mail.value==''){
+        mail.style.border='2px solid red'
+        error3.textContent='Email should have @ '
+        return
+    }
+    else{
+        mail.style.border='2px solid green'
+        error3.textContent='  '
+    }
+    if(pas.value.length<6 ){
+        pas.style.border='2px solid red'
+        error4.textContent='Password must be at least 6 characters long'
+        return
+    }
+    else{
+        pas.style.border='2px solid green'
+        error4.textContent=''
+    }
 })
+
+
